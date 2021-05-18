@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<arcs>
+  <arc>
+    <source>
+      <acceptedColors>
+        <color>control</color>
+        <color>sample</color>
+      </acceptedColors>
+      <tokenList>
+        <color>control</color>
+        <color>control</color>
+      </tokenList>
+    </source>
+    <destination>
+      <AcceptedColors>
+        <color>control</color>
+        <color>sample</color>
+      </AcceptedColors>
+      <GeneratedColors>
+        <color>flow</color>
+      </GeneratedColors>
+      <ActualTransition>
+        and
+      </ActualTransition>
+    </destination>
+  </arc>
+  <arc>
+    <source>
+      <AcceptedColors>
+        <color>control</color>
+        <color>sample</color>
+      </AcceptedColors>
+      <GeneratedColors>
+        <color>flow</color>
+      </GeneratedColors>
+      <ActualTransition>
+        and
+      </ActualTransition>
+    </source>
+    <destination>
+      <acceptedColors>
+        <color>flow</color>
+      </acceptedColors>
+      <tokenList></tokenList>
+    </destination>
+  </arc>
+</arcs>
+

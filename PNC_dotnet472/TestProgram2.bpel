@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bpel:process name="hworld"
+				 targetNamespace="http://eclipse.org/bpel/sample"
+				 suppressJoinFailure="yes"
+				 xmlns:tns="http://eclipse.org/bpel/sample"
+				 xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+				 >
+  <bpel:import location="hworldArtifacts.wsdl" namespace="http://eclipse.org/bpel/sample"
+					importType="http://schemas.xmlsoap.org/wsdl/" />
+
+  <bpel:partnerLinks>
+   
+    <bpel:partnerLink name="client"
+                 partnerLinkType="tns:hworld"
+                 myRole="hworldProvider"
+                 partnerRole="hworldRequester"
+										 />
+  </bpel:partnerLinks>
+  <bpel:variables> 
+    <bpel:variable name="input"
+              messageType="tns:hworldRequestMessage"/>
+    <bpel:variable name="output"
+              messageType="tns:hworldResponseMessage"/>
+  </bpel:variables>
+  
+  <bpel:sequence name="main">
+    <bpel:flow name="mainFlow">
+      <bpel:invoke name="flow1" operation="main1"/>
+      <bpel:invoke name="flow2" operation="main2"/>
+    </bpel:flow>
+   
+  </bpel:sequence>
+  <bpel:sequence name="main1">
+    <bpel:receive name="receiveInput" partnerLink="client"
+           operation="initiate" variable="message"
+           createInstance="yes"/>
+  </bpel:sequence>
+
+  <bpel:sequence name="main2">
+    <bpel:send name="sendOutput" partnerLink="client"
+               operation="initiate" variable="message"/>
+  </bpel:sequence>
+</bpel:process>
